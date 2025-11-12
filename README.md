@@ -11,21 +11,15 @@ TrailGPT is a research project developed at the **University of Zurich (Departme
 By leveraging publicly available tour reports from platforms such as **Hikr**, the workflow extracts place names, geocodes them along mountain routes, and generates concise, climber-focused insights using **OpenAI models**.  
 The system demonstrates how **GeoAI** can enhance route planning, safety assessment, and accessibility of geographic knowledge in alpine environments.
 
----
+##  Interactive Map Preview
 
-## Interactive Map Preview
+Below you can explore a **sample route visualization** (*Piz Bernina tour*).  
+The figure shows the AI-generated route description overlaid on the SwissTopo map.
 
-Below you can explore a **sample route visualization** (Piz Bernina tour).  
-If viewed on **GitHub Pages** or in a local Markdown preview, the map is fully interactive.
+![Sample Route Visualization](Literature/example_result.png)
 
-<iframe src="results/route_with_descriptions_map.html" width="100%" height="600px" style="border:none;"></iframe>
-
-> 💡 If you’re viewing this directly on GitHub (which disables iframes),  
-> open the map manually here:  
+>  For the fully interactive version, open it locally or via GitHub Pages:  
 > [**Open Interactive Map →**](results/route_with_descriptions_map.html)
-
-
----
 
 ##  Research Objectives
 
