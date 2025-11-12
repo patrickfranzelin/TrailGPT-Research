@@ -13,18 +13,17 @@ The system demonstrates how **GeoAI** can enhance route planning, safety assessm
 
 ---
 
-## 🗺️ Interactive Map Preview
+## Interactive Map Preview
 
 Below you can explore a **sample route visualization** (Piz Bernina tour).  
-If viewed on GitHub Pages or a local Markdown preview, the map is fully interactive.
+If viewed on **GitHub Pages** or in a local Markdown preview, the map is fully interactive.
 
-<div align="center">
-    <iframe src="results/route_with_descriptions_map.html" width="100%" height="600px" style="border:none;">
-    </iframe>
-</div>
+<iframe src="results/route_with_descriptions_map.html" width="100%" height="600px" style="border:none;"></iframe>
 
->  *If you’re viewing this on GitHub without Pages enabled, open the map directly here:*  
-> [ Open Interactive Map](results/route_with_descriptions_map.html)
+> 💡 If you’re viewing this directly on GitHub (which disables iframes),  
+> open the map manually here:  
+> [**Open Interactive Map →**](results/route_with_descriptions_map.html)
+
 
 ---
 
