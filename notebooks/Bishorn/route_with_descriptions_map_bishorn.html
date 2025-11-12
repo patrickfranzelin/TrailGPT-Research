@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_4b5eedae0420d1628a1a316ab598860a {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_4b5eedae0420d1628a1a316ab598860a" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_4b5eedae0420d1628a1a316ab598860a = L.map(
+                "map_4b5eedae0420d1628a1a316ab598860a",
+                {
+                    center: [46.12791, 7.629858],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var macro_element_21bc85520d2d77b80b0fd8e3a187aa8d = L.tileLayer.wms(
+                "https://wms.geo.admin.ch/",
+                {"attribution": "", "format": "image/jpeg", "layers": "ch.swisstopo.pixelkarte-farbe", "styles": "", "transparent": true, "version": "1.1.1"}
+            );
+        
+    
+            macro_element_21bc85520d2d77b80b0fd8e3a187aa8d.addTo(map_4b5eedae0420d1628a1a316ab598860a);
+        
+    
+            var poly_line_3c03fe1702652f77b2f65ce73d0a901f = L.polyline(
+                [[46.12791, 7.629858], [46.127847, 7.629976], [46.127908, 7.630057], [46.127983, 7.630066], [46.128209, 7.629953], [46.128444, 7.629906], [46.129202, 7.630115], [46.12931, 7.630105], [46.130348, 7.62958], [46.130753, 7.629217], [46.1309, 7.62949], [46.13118, 7.63106], [46.13155, 7.63119], [46.13145, 7.63155], [46.13178, 7.63172], [46.13179, 7.63234], [46.13213, 7.6324], [46.13178, 7.63302], [46.1315, 7.63352], [46.13108, 7.63376], [46.13039, 7.63385], [46.13012, 7.63403], [46.13004, 7.63433], [46.13025, 7.63477], [46.13026, 7.63525], [46.13018, 7.63565], [46.12995, 7.6361], [46.129957, 7.636139], [46.129743, 7.636224], [46.129651, 7.636047], [46.129529, 7.635729], [46.12943, 7.635647], [46.129389, 7.635671], [46.129319, 7.635867], [46.129114, 7.636228], [46.129088, 7.63625], [46.129088, 7.63625], [46.12903, 7.6363], [46.128955, 7.636286], [46.128929, 7.636351], [46.128728, 7.636406], [46.128645, 7.636405], [46.128629, 7.636464], [46.128813, 7.636542], [46.128855, 7.636605], [46.129062, 7.636755], [46.129165, 7.636812], [46.129255, 7.636832], [46.129407, 7.636926], [46.129283, 7.637096], [46.129304, 7.637204], [46.129201, 7.637242], [46.129201, 7.637242], [46.129094, 7.637314], [46.129186, 7.637456], [46.129138, 7.637525], [46.129286, 7.63761], [46.129309, 7.637704], [46.12937, 7.637772], [46.129359, 7.637831], [46.129306, 7.637825], [46.129127, 7.637933], [46.128967, 7.637978], [46.128967, 7.637978], [46.12866, 7.638065], [46.128709, 7.638157], [46.128758, 7.638206], [46.128714, 7.638247], [46.128711, 7.638309], [46.128609, 7.638452], [46.128438, 7.638524], [46.128279, 7.638636], [46.12815, 7.638686], [46.127996, 7.638663], [46.127914, 7.638704], [46.127914, 7.638704], [46.127738, 7.638792], [46.127715, 7.638944], [46.127916, 7.639375], [46.128005, 7.639424], [46.128029, 7.639518], [46.127891, 7.639559], [46.127814, 7.639634], [46.127798, 7.639719], [46.127723, 7.639798], [46.127577, 7.64039], [46.127527, 7.640501], [46.127461, 7.640471], [46.127532, 7.640617], [46.127438, 7.640728], [46.127375, 7.640716], [46.127207, 7.640817], [46.12712, 7.640798], [46.127074, 7.640843], [46.127253, 7.641024], [46.127285, 7.641093], [46.127236, 7.641154], [46.127227, 7.64133], [46.127187, 7.641424], [46.127173, 7.641592], [46.127173, 7.641592], [46.127167, 7.641666], [46.127132, 7.641722], [46.12709, 7.641993], [46.126992, 7.642056], [46.126555, 7.642652], [46.126385, 7.643158], [46.126192, 7.643378], [46.126071, 7.643393], [46.126071, 7.643393], [46.125915, 7.643434], [46.12541, 7.643809], [46.124826, 7.644131], [46.124826, 7.644131], [46.124865, 7.644188], [46.125042, 7.644251], [46.125225, 7.644213], [46.125508, 7.644329], [46.126048, 7.644505], [46.126288, 7.644479], [46.126378, 7.644443], [46.12656, 7.644514], [46.126918, 7.644703], [46.127174, 7.644781], [46.127174, 7.644781], [46.127214, 7.644793], [46.127348, 7.644728], [46.127938, 7.645093], [46.12845, 7.645622], [46.128535, 7.645764], [46.128301, 7.645872], [46.128034, 7.64593], [46.128546, 7.646455], [46.128528, 7.646489], [46.128522, 7.64649], [46.128522, 7.64649], [46.128346, 7.646531], [46.128082, 7.646492], [46.127752, 7.646397], [46.127608, 7.646276], [46.127187, 7.646301], [46.126834, 7.646267], [46.126385, 7.646394], [46.126176, 7.646516], [46.125876, 7.646562], [46.125307, 7.64684], [46.125307, 7.64684], [46.124916, 7.647106], [46.124675, 7.647137], [46.12454, 7.647005], [46.124178, 7.647002], [46.12376, 7.64711], [46.123492, 7.64704], [46.123209, 7.646933], [46.122655, 7.647051], [46.122476, 7.647201], [46.122315, 7.647244], [46.122315, 7.647244], [46.122191, 7.647277], [46.121862, 7.6473], [46.121818, 7.647327], [46.121685, 7.647286], [46.121627, 7.647226], [46.121305, 7.647344], [46.121168, 7.647329], [46.121103, 7.647358], [46.121202, 7.647534], [46.12105, 7.647575], [46.121165, 7.647775], [46.120978, 7.647695], [46.120934, 7.647551], [46.12086, 7.647529], [46.120826, 7.647639], [46.120697, 7.64768], [46.120628, 7.647808], [46.12072, 7.647861], [46.120609, 7.647953], [46.120673, 7.648004], [46.120712, 7.648088], [46.120571, 7.648195], [46.120621, 7.648344], [46.120607, 7.648409], [46.120462, 7.648377], [46.120467, 7.648442], [46.120417, 7.648483], [46.120417, 7.648483], [46.120386, 7.648509], [46.12037, 7.648667], [46.120384, 7.648802], [46.120368, 7.648946], [46.120423, 7.649059], [46.120481, 7.649123], [46.120454, 7.64918], [46.120451, 7.649338], [46.120384, 7.649381], [46.12039, 7.649555], [46.120459, 7.649636], [46.120516, 7.649649], [46.12063, 7.649797], [46.120672, 7.649813], [46.120711, 7.649794], [46.120771, 7.649837], [46.120869, 7.650062], [46.120911, 7.650207], [46.120947, 7.650246], [46.120947, 7.650246], [46.12105, 7.650355], [46.121126, 7.650373], [46.121216, 7.650346], [46.121322, 7.650362], [46.121378, 7.65044], [46.121376, 7.650641], [46.121404, 7.650698], [46.121518, 7.650821], [46.121634, 7.650913], [46.121669, 7.650974], [46.121725, 7.650972], [46.121859, 7.651157], [46.121892, 7.651178], [46.121953, 7.651143], [46.122136, 7.651148], [46.122179, 7.651123], [46.122353, 7.651366], [46.122609, 7.651629], [46.122988, 7.652153], [46.122943, 7.652415], [46.123011, 7.652542], [46.123026, 7.652622], [46.122843, 7.652698], [46.122781, 7.653066], [46.122885, 7.653355], [46.122952, 7.653742], [46.123293, 7.654148], [46.123449, 7.654177], [46.123488, 7.65428], [46.123414, 7.654658], [46.123276, 7.65481], [46.123293, 7.654977], [46.123193, 7.655218], [46.123218, 7.65545], [46.123218, 7.65545], [46.12326, 7.655836], [46.12333, 7.656258], [46.123376, 7.65635], [46.123478, 7.656355], [46.123544, 7.656419], [46.123602, 7.657045], [46.12367, 7.65756], [46.123951, 7.658164], [46.124126, 7.658329], [46.124503, 7.658183], [46.124618, 7.658241], [46.124682, 7.658418], [46.124773, 7.658487], [46.124856, 7.658745], [46.124867, 7.658867], [46.124933, 7.659017], [46.124914, 7.659253], [46.124868, 7.65941], [46.124896, 7.659744], [46.124736, 7.66015], [46.12477, 7.660333], [46.124728, 7.66064], [46.124759, 7.660742], [46.124725, 7.661168], [46.124638, 7.661673], [46.124737, 7.662505], [46.1248, 7.662582], [46.124933, 7.662583], [46.125026, 7.662713], [46.125083, 7.662974], [46.125192, 7.663244], [46.125402, 7.663326], [46.125549, 7.663356], [46.125808, 7.663706], [46.126016, 7.663909], [46.126137, 7.664119], [46.126384, 7.664208], [46.126443, 7.664106], [46.126495, 7.664205], [46.126656, 7.664254], [46.126895, 7.664047], [46.126994, 7.663926], [46.127292, 7.663779], [46.12733, 7.663739], [46.12733, 7.663739], [46.127406, 7.663658], [46.1274, 7.663969], [46.127363, 7.664211], [46.127352, 7.664522], [46.127404, 7.664637], [46.12746, 7.664855], [46.127449, 7.665075], [46.127347, 7.665576], [46.127425, 7.666041], [46.127399, 7.666243], [46.127459, 7.666305], [46.127501, 7.666437], [46.127507, 7.666528], [46.127437, 7.666717], [46.127403, 7.666895], [46.127451, 7.667031], [46.12747, 7.667461], [46.12744, 7.667533], [46.127473, 7.667638], [46.127563, 7.667769], [46.127693, 7.668023], [46.127679, 7.668059], [46.127737, 7.668181], [46.127806, 7.668257], [46.127823, 7.668337], [46.127807, 7.668502], [46.127823, 7.668667], [46.127799, 7.668775], [46.127804, 7.668886], [46.127747, 7.669076], [46.127709, 7.669157], [46.127621, 7.669595], [46.127667, 7.670345], [46.127662, 7.671021], [46.127682, 7.671117], [46.127661, 7.671197], [46.127675, 7.671339], [46.127703, 7.671398], [46.127691, 7.671696], [46.12766, 7.671839], [46.12766, 7.671839], [46.127618, 7.672031], [46.127615, 7.672185], [46.127591, 7.67238], [46.127678, 7.672332], [46.127833, 7.672157], [46.127823, 7.672313], [46.127863, 7.672379], [46.127899, 7.672816], [46.127947, 7.672973], [46.127986, 7.673182], [46.128054, 7.673254], [46.128157, 7.673457], [46.128196, 7.673587], [46.128248, 7.673655], [46.128301, 7.673661], [46.128352, 7.673621], [46.128392, 7.67369], [46.128515, 7.673603], [46.128548, 7.673775], [46.128584, 7.673726], [46.128629, 7.673773], [46.128647, 7.673966], [46.128689, 7.674025], [46.128761, 7.674024], [46.128794, 7.674168], [46.128999, 7.674428], [46.129014, 7.674511], [46.129081, 7.674552], [46.129044, 7.674623], [46.129082, 7.674679], [46.129079, 7.674815], [46.129127, 7.67502], [46.129158, 7.675322], [46.129223, 7.675417], [46.129263, 7.675542], [46.129347, 7.675596], [46.129375, 7.675838], [46.12942, 7.675924], [46.129549, 7.675979], [46.129597, 7.67616], [46.129661, 7.676163], [46.129665, 7.676245], [46.129724, 7.676263], [46.129743, 7.676561], [46.129781, 7.676624], [46.12982, 7.6766], [46.129859, 7.676637], [46.129878, 7.676723], [46.129984, 7.676732], [46.13005, 7.676833], [46.130102, 7.676806], [46.130128, 7.676882], [46.130184, 7.676905], [46.130219, 7.677117], [46.130275, 7.677227], [46.130349, 7.677203], [46.130463, 7.677299], [46.130514, 7.677369], [46.130581, 7.677408], [46.130581, 7.677477], [46.130612, 7.677483], [46.13071, 7.677747], [46.130773, 7.677746], [46.13085, 7.677847], [46.130838, 7.677894], [46.130859, 7.677914], [46.130832, 7.67811], [46.130858, 7.678116], [46.130869, 7.678162], [46.130852, 7.678175], [46.130861, 7.678215], [46.130794, 7.678455], [46.130546, 7.678857], [46.130529, 7.679218], [46.130358, 7.679507], [46.130358, 7.679507], [46.130278, 7.67964], [46.13017, 7.679578], [46.130072, 7.679722], [46.130072, 7.679812], [46.129909, 7.680043], [46.129858, 7.680216], [46.130096, 7.68057], [46.13003, 7.680692], [46.130013, 7.680877], [46.130029, 7.681031], [46.130137, 7.681311], [46.130251, 7.681393], [46.130249, 7.68146], [46.130374, 7.681732], [46.13017, 7.682209], [46.13034, 7.682449], [46.130408, 7.68261], [46.129837, 7.683776], [46.12885, 7.68554], [46.12837, 7.68858], [46.12807, 7.69223], [46.1281, 7.69536], [46.12822, 7.69897], [46.1284, 7.70215], [46.12843, 7.70556], [46.12839, 7.70672], [46.12813, 7.708], [46.12743, 7.71011], [46.12684, 7.71075], [46.12629, 7.71062], [46.12592, 7.71043], [46.12546, 7.71047], [46.12495, 7.71099], [46.12449, 7.71176], [46.1236, 7.71294], [46.12263, 7.71395], [46.12126, 7.71399], [46.12016, 7.71438], [46.11946, 7.71513], [46.11881, 7.71556], [46.118, 7.71621], [46.11796, 7.71584], [46.11782, 7.71554], [46.11788, 7.71495]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(map_4b5eedae0420d1628a1a316ab598860a);
+        
+    
+            var marker_8733d1adcc1f235f7f9e485e7c21442a = L.marker(
+                [46.1189247, 7.6451894],
+                {
+}
+            ).addTo(map_4b5eedae0420d1628a1a316ab598860a);
+        
+    
+            var icon_05ae2859142ad42eda870b652aff5dd2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_8733d1adcc1f235f7f9e485e7c21442a.setIcon(icon_05ae2859142ad42eda870b652aff5dd2);
+        
+    
+        var popup_183b66d65d32275746710dd1af99ef71 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a0409b5c822b8afba7e6989dd32cf9d0 = $(`<div id="html_a0409b5c822b8afba7e6989dd32cf9d0" style="width: 100.0%; height: 100.0%;"><b>Roc de la Vache</b><br>- **Difficulty Level**: T4 - **Notable Features**: Scenic views of Zinal, the impressive Roc de la Vache pyramid, and the majestic Corona Imperiale. - **Transition Details**:    - Previous place: Parking in Zinal.   - Next place: Col de Tracuit.   - Key route changes: Divert to right at the col to approach Roc de la Vache. - **Route Guidance**:    - Follow good trail markers; path leads through lush meadows.   - Watch for cairns; navigate left around a rock outcrop (gendarme) to find the easier ascent.   - Expect a short uphill pastures climb (approx. 20m) to reach the viewpoint. </div>`)[0];
+                popup_183b66d65d32275746710dd1af99ef71.setContent(html_a0409b5c822b8afba7e6989dd32cf9d0);
+            
+        
+
+        marker_8733d1adcc1f235f7f9e485e7c21442a.bindPopup(popup_183b66d65d32275746710dd1af99ef71)
+        ;
+
+        
+    
+    
+            var marker_f54f30d5571a7eace5b7388aff64d9e2 = L.marker(
+                [46.1307995, 7.6782515],
+                {
+}
+            ).addTo(map_4b5eedae0420d1628a1a316ab598860a);
+        
+    
+            var icon_05a88a6f2b055d8002f8fae5f5319d92 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_f54f30d5571a7eace5b7388aff64d9e2.setIcon(icon_05a88a6f2b055d8002f8fae5f5319d92);
+        
+    
+        var popup_80e2c17a8a2f84ece8cf99474bf03fc0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_23dded9058ddd51ae1bc173b87f7634a = $(`<div id="html_23dded9058ddd51ae1bc173b87f7634a" style="width: 100.0%; height: 100.0%;"><b>Col de Tracuit</b><br>- **Difficulty Level**: ZS (Zorrenshweg) - **Notable Features**: Views of glaciers and seracs; steep ascent to Col de Tracuit. - **Transition Details**: Previous place: Roc de la Vache; next place: Cabane de Tracuit. - **Route Guidance**:    - Follow marked path; note cairns.   - Steep terrain with rocky sections and snowfields.   - Caution on the last very steep passage with fixed chains.</div>`)[0];
+                popup_80e2c17a8a2f84ece8cf99474bf03fc0.setContent(html_23dded9058ddd51ae1bc173b87f7634a);
+            
+        
+
+        marker_f54f30d5571a7eace5b7388aff64d9e2.bindPopup(popup_80e2c17a8a2f84ece8cf99474bf03fc0)
+        ;
+
+        
+    
+    
+            var marker_b5cc2b0a9be7d25572bc6028b75ff913 = L.marker(
+                [46.13031065, 7.6794150635639955],
+                {
+}
+            ).addTo(map_4b5eedae0420d1628a1a316ab598860a);
+        
+    
+            var icon_1a5276aa08df4d1e1e594f9d0d00bd62 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_b5cc2b0a9be7d25572bc6028b75ff913.setIcon(icon_1a5276aa08df4d1e1e594f9d0d00bd62);
+        
+    
+        var popup_d8a5d5c2a38544592391c49e9c25254b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_58491bce8b8b0a0ddb10da7a99de6449 = $(`<div id="html_58491bce8b8b0a0ddb10da7a99de6449" style="width: 100.0%; height: 100.0%;"><b>Cabane de Tracuit</b><br>- **Difficulty Level**: T3 - **Notable Features**: Newly built Cabane de Tracuit at 3256m, stunning views of Bishorn and Turtmanngletscher. - **Transition Details**: Previous place: Col de Tracuit; Next place: Turtmanngletscher. - **Route Guidance**:    - Follow marked path through grassy pastures and rocky terrain.   - Navigate via cairns and a chain-assisted rocky wall just before reaching the hut.    - Be cautious of snowfields and expect a long ascent with significant elevation gain (1600m).</div>`)[0];
+                popup_d8a5d5c2a38544592391c49e9c25254b.setContent(html_58491bce8b8b0a0ddb10da7a99de6449);
+            
+        
+
+        marker_b5cc2b0a9be7d25572bc6028b75ff913.bindPopup(popup_d8a5d5c2a38544592391c49e9c25254b)
+        ;
+
+        
+    
+    
+            var marker_c69b79dae00a8f8193fed48f518d9ce8 = L.marker(
+                [46.1300429, 7.696825103291154],
+                {
+}
+            ).addTo(map_4b5eedae0420d1628a1a316ab598860a);
+        
+    
+            var icon_09559ada70762952400866e802a78152 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_c69b79dae00a8f8193fed48f518d9ce8.setIcon(icon_09559ada70762952400866e802a78152);
+        
+    
+        var popup_900fb548c4880bbe91da9c14002b9329 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3073b288fb8ae19b464f1af5cb92c306 = $(`<div id="html_3073b288fb8ae19b464f1af5cb92c306" style="width: 100.0%; height: 100.0%;"><b>Turtmanngletscher</b><br>- **Difficulty Level**: T4 (moderate to difficult, with some steep sections) - **Notable Features**: Extensive glacier with deep crevasses; views of the Bishorn peak and surrounding landscapes. - **Transitions**: Previous place: Cabane de Tracuit (3256m); Next place: Bishorn (4153m). Route transitions from flat glacier to steeper ascent towards Bishorn. - **Route Guidance**:    - Follow established paths and cairns across the glacier.   - At 3500m, keep left to avoid crevasses.   - Ascend the northwestern flank to approach the summit ridge.</div>`)[0];
+                popup_900fb548c4880bbe91da9c14002b9329.setContent(html_3073b288fb8ae19b464f1af5cb92c306);
+            
+        
+
+        marker_c69b79dae00a8f8193fed48f518d9ce8.bindPopup(popup_900fb548c4880bbe91da9c14002b9329)
+        ;
+
+        
+    
+    
+            var marker_30433021700cdddfcd1e7a08ed26c91f = L.marker(
+                [46.1179218, 7.7149611],
+                {
+}
+            ).addTo(map_4b5eedae0420d1628a1a316ab598860a);
+        
+    
+            var icon_0e9be6494d0f24a1715207621f11068f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_30433021700cdddfcd1e7a08ed26c91f.setIcon(icon_0e9be6494d0f24a1715207621f11068f);
+        
+    
+        var popup_9771a56a85aa36c12e735edbae874784 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4dc3b8cc943397647835c2e6325d7a6b = $(`<div id="html_4dc3b8cc943397647835c2e6325d7a6b" style="width: 100.0%; height: 100.0%;"><b>Bishorn</b><br>- **Difficulty Level**: T4 (F+) - **Notable Features**: Highlights include the Bishorn (4153m) and Pointe Burnaby (4135m); views of the Weisshorn. - **Transition Details**: Start from Turtmanngletscher, finish at Zinal via Cabane de Tracuit. - **Route Guidance**:    - Ascend via a well-marked glacier path; watch for crevasses.   - An easy scramble leads to the saddle between the West and East summits.   - Return via the same route to Zinal (2500m descent).</div>`)[0];
+                popup_9771a56a85aa36c12e735edbae874784.setContent(html_4dc3b8cc943397647835c2e6325d7a6b);
+            
+        
+
+        marker_30433021700cdddfcd1e7a08ed26c91f.bindPopup(popup_9771a56a85aa36c12e735edbae874784)
+        ;
+
+        
+    
+    
+            var layer_control_4716c0faede19e44d4aaf5bb012a5bae_layers = {
+                base_layers : {
+                },
+                overlays :  {
+                    "Swiss Topo Karte" : macro_element_21bc85520d2d77b80b0fd8e3a187aa8d,
+                },
+            };
+            let layer_control_4716c0faede19e44d4aaf5bb012a5bae = L.control.layers(
+                layer_control_4716c0faede19e44d4aaf5bb012a5bae_layers.base_layers,
+                layer_control_4716c0faede19e44d4aaf5bb012a5bae_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_4b5eedae0420d1628a1a316ab598860a);
+
+        
+</script>
+</html>
