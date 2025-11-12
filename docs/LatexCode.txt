@@ -1,0 +1,311 @@
+%%
+%% ACM Conference Proceedings Template (adapted for Franzelin Jean Patrick)
+%% Author: Franzelin Jean Patrick, Department of Geography, University of Zurich (UZH)
+%%
+\documentclass[sigconf]{acmart}
+
+%% Rights management information. This information is sent to you
+%% when you complete the rights form. Replace SAMPLE values with your actual information.
+\setcopyright{acmlicensed}
+\copyrightyear{2024}
+\acmYear{2024}
+\acmDOI{XXXXXXX.XXXXXXX}
+
+%% Conference information
+\acmConference[Retrieving Geoinformation 2024]{Retrieving Geoinformation for Mountaineering: From Web Data to AI-Driven Insights}{January 20, 2025}{Zurich, Switzerland}
+\acmISBN{978-1-4503-XXXX-X/24/01}
+
+%% Include graphics
+\graphicspath{{./images/}}
+
+\begin{document}
+
+%% Title of the paper
+\title{Retrieving Geoinformation for Mountaineering: From Web Data to AI-Driven Insights}
+
+%% Author information
+\author{Franzelin Jean Patrick}
+\affiliation{%
+  \institution{University of Zurich (UZH)}
+  \department{Department of Geography}
+  \city{Zurich}
+  \country{Switzerland}}
+\email{jeanpatrick.franzelin@uzh.ch}
+
+%% Abstract
+\begin{abstract} 
+This paper presents an workflow that integrates web scraping, AI-driven text summarization, and GIS-based visualization to retrieve and represent geoinformation for mountaineering. By leveraging publicly available tour reports from platforms such as Hikr, we systematically extract key place names and contextual descriptions, geoparse them along predefined routes, and generate concise, climber-focused insights. The study addresses methodological challenges, including the complexities of text parsing, the ethical considerations of web scraping, and the reliability of AI-generated content. Furthermore, it explores the potential of enhancing mountaineering safety and route planning through intuitive geospatial data visualizations. Two case studies, the Piz Bernina and Bishorn tours, were analyzed to validate the proposed approach, highlighting both the opportunities and limitations of AI-assisted geoinformation retrieval. The findings underscore the importance of integrating human-centered cartographic principles with automated data extraction to provide actionable, safety-critical information for climbers and alpinists.
+\end{abstract}
+%%---------------------------------------------------
+%% CCS Concepts and Keywords
+\begin{CCSXML}
+<ccs2012>
+ <concept>
+  <concept_id>10010405.10010432</concept_id>
+  <concept_desc>Information systems~Geographic information systems</concept_desc>
+  <concept_significance>500</concept_significance>
+ </concept>
+ <concept>
+  <concept_id>10002951.10003317</concept_id>
+  <concept_desc>Information systems~Information retrieval</concept_desc>
+  <concept_significance>300</concept_significance>
+ </concept>
+</ccs2012>
+\end{CCSXML}
+\ccsdesc[500]{Information systems~Geographic information systems}
+\ccsdesc[300]{Information systems~Information retrieval}
+%%--------------------------------------------------
+\keywords{web scraping, GIS, geoinformation visualization, cartography for mountaineering, AI summarization, ethics in geoinformation retrieval}
+
+\maketitle
+
+\section{Introduction}
+Geoinformation retrieval plays a pivotal role in enhancing decision-making across various domains, including high-risk activities such as mountaineering. Making essential data accessible and easily understandable for users fosters greater comprehension and significantly reduces risks.
+
+In the context of avalanche hazards, extensive research has been dedicated to identifying the most effective methods for representing avalanche danger in ways that are both straightforward and visually engaging \cite{eckerstorfer2010cartographic}, \cite{Rotche16012024}. Effective visualization of this information is essential for diverse user groups, including mountaineers, alpinists, and recreational tourists. The goal is to deliver critical data in an intuitive manner \cite{Rotche16012024}, empowering users to make informed decisions and improve safety during their activities.
+
+This project builds on these insights by emphasizing the importance of concise, climber-centric descriptions combined with robust cartographic principles to create accessible and actionable visualizations. By integrating relevant geospatial information with a user-centered design approach, the aim is to distill complex hazard data into meaningful insights that enhance route planning and navigation. This includes leveraging prior knowledge about hazards, route difficulty, and geospatial decision points to ensure effective preparation and safe navigation during tours.
+
+As a datasource, this study explores the use of publicly accessible tour reports from platforms like Hikr as a valuable data source. By employing a combination of web scraping, AI-driven summarization, and GIS tools, the research seeks to address key challenges in processing and visualizing data for mountaineers. Transparency, bias, and data provenance are critical challenges in integrating GeoAI into cartographic applications (\cite{Kang03072024}). The overarching objective is to enhance the usability and relevance of hazard information, enabling safer and more enjoyable mountaineering experiences.
+
+\subsection{Related Work}
+Nevistić and Špoljarić \cite{nevistic2019webgis} analyzed Web-GIS platforms for mountaineering in Croatia, emphasizing their role in facilitating route planning and information sharing. These platforms offer interactive features such as browsing, filtering, and downloading spatial data. Similar platforms in Switzerland and Slovenia further underscore the increasing importance of geoinformation tools in outdoor sports tourism.
+
+In the field of risk management, Du and Sun \cite{du2024outdoor} proposed an embedded system for outdoor sports safety. Their system integrates real-time physiological and environmental data to provide automated risk assessment and early warnings. The findings suggest that such systems can significantly enhance the safety and situational awareness of outdoor enthusiasts by offering real-time monitoring and predictive capabilities.
+
+Avalanche warning systems have been extensively studied in recent years. Approaches such as those by Rotche and Lin \cite{Rotche16012024} focus on user-centered risk visualization to improve safety for backcountry travelers. Similarly, Eckerstorfer et al. \cite{eckerstorfer2010cartographic} and McClung \cite{McClung2009} provide comprehensive guidelines for avalanche categorization, representation, and communication. However, research specifically addressing the needs of climbers and high-altitude mountaineering remains limited. Most existing studies primarily focus on avalanche risks for skiers, neglecting other critical factors for alpinists, such as route planning and objective hazards like rockfall and crevasses.
+
+A comprehensive approach that combines user-generated content from tour portals to systematically analyze and extract the most relevant information into a universal, concise, and standardized format has not been explored in existing research. This gap highlights the necessity for advanced methodologies that leverage artificial intelligence and geoinformation systems to process and visualize user-contributed data for improved decision-making in outdoor sports.
+
+
+\subsection{Research Questions}
+This study addresses the following research questions:
+
+\begin{enumerate}
+    \item \textbf{Gathering and Filtering Data:} How can publicly available descriptive text data be effectively gathered, filtered, and structured to generate geoinformation that supports specific tasks with a focus on ethics?
+    \item \textbf{Cartography and Safety:} In what ways can cartography and geospatial visualization enhance the safety of individuals exposed to risks, such as mountaineers and what responsibilies come with it for the map creator?
+    \item \textbf{AI and GIS for Mountaineering:} How can the integration of AI-driven text summarization and GIS tools improve the accessibility and usability of geospatial information for mountaineers?
+\end{enumerate}
+
+
+\section{Methods}
+In this paper, the following steps were employed to address the research questions and produce an initial prototype for representing the proposed ideas. Due to the complexity of developing the code and initial layout, all methods were applied to two case study, the Piz Bernina tour and the Bishorn, rather than a large-scale validation.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.6\linewidth]{images/flowchart.png} \Description{A bell-like histogram centered at $0.5$˜V with most
+measurements between $0.2$˜V and $0.8$˜V}
+\caption{Visualization of the identified Places along the route, geoparsed and plotted on a map.}
+\label{fig:Retrieving_ai}
+\end{figure}
+
+\begin{itemize}
+    \item \textbf{Web Scraping:} Extract tour descriptions from Hikr using Python-based scraping tools.
+    \item \textbf{Text Parsing:} Identify place names (e.g., peaks, huts, and valleys) mentioned in the reports.
+    \item \textbf{Geoparsing:} Match extracted place names to GPX route data using spatial algorithms.
+    \item \textbf{AI Summarization:} Pass text snippets to the OpenAI API to generate concise descriptions with details such as difficulty level and navigation tips.
+    \item \textbf{GIS Visualization:} Plot the identified places and descriptions on a Swiss Topo map.
+\end{itemize}
+
+\subsection{Data Source Selection and Web Scraping Process}
+
+As the first step, a data source was selected. Instead of relying on traditional GIS data, tour reports were chosen as the primary resource to provide detailed, user-generated insights into alpine experiences. Hikr, a portal where individuals publish tour reports, was identified as a suitable and reliable platform.
+
+To utilize the data locally, it was harvested using web scraping. Web scraping is an automated technique for extracting information from websites by parsing their HTML structure (\cite{Liu2007}). This approach is particularly effective for collecting semi-structured data from dynamic web pages. The main page for each mountain on Hikr (e.g., \url{https://www.hikr.org/dir/tag/piz_bernina/tour/}) lists links to individual tour reports, which were programmatically identified and accessed.
+
+The scraping process was implemented in Python using the libraries \texttt{requests} and \texttt{BeautifulSoup}, ensuring efficient and systematic data collection.
+
+Following Liu’s guidelines (\cite{Liu2007}), the web scraping process involved these steps:
+
+\begin{enumerate}
+    \item \textbf{Base URL Selection:} The starting point was the main page for Piz Bernina tours on Hikr.
+    \item \textbf{Pagination Handling:} To access multiple pages of results, a \texttt{while} loop iteratively updated the query string parameter (\texttt{?skip=n}).
+    \item \textbf{Link Extraction:} HTML content was parsed using \texttt{BeautifulSoup} to identify links pointing to individual tour reports, filtered by paths containing \texttt{/tour/post}.
+    \item \textbf{Data Cleaning:} Duplicate links were removed, and relative URLs were converted into absolute URLs by appending the base URL.
+    \item \textbf{Content Extraction:} For each tour report, the script extracted:
+          \begin{itemize}
+              \item Tour descriptions from the \texttt{<div class="main\_text">} element.
+              \item Tour dates from \texttt{<td>} elements labeled \texttt{Tour Datum:}.
+          \end{itemize}
+    \item \textbf{Error Handling:} Network errors were managed using exception handling, and delays (\texttt{time.sleep(1)}) were introduced between requests to prevent server overload and ensure ethical scraping.
+    \item \textbf{Data Storage:} The collected data (URLs, descriptions, and dates) were organized into a Python list and saved as a CSV file using \texttt{pandas} for further processing.
+\end{enumerate}
+
+\subsection{Place Name Extraction Geographic Filtering and Visualization}
+
+Tour descriptions were processed using the \texttt{spaCy} library with its German language model (\texttt{de\_core\_news\_sm}) to extract place names such as peaks, huts, and valleys. spaCy's NER system leverages deep learning-based transformers and word embeddings to identify entities with high precision and recall cite (\cite{Berragan03042023})
+Named entities categorized as \texttt{LOC}, \texttt{GPE}, or \texttt{FAC} were identified. The frequency of each place name was calculated using \texttt{collections.Counter}, and the results were saved to a CSV file (\texttt{place\_frequencies.csv}).
+
+The extracted place names were geocoded into latitude and longitude coordinates using the \texttt{geopy} library and Nominatim API. These coordinates were matched against a GPX route file (\texttt{pizbernina.gpx}) using geodesic distance calculations to filter places within 100 meters of the route to exlude outliers or wrong geoparsed placenames. The filtered places were visualized on an interactive \texttt{folium} map, overlaid with the Swiss Topo map layer and the GPX route. The final locations were saved as a CSV file (\texttt{filtered\_nearby\_places.csv}) and displayed as markers on the map.
+
+\subsection{Generation of Mountaineering Descriptions}
+
+To generate concise and context-aware mountaineering descriptions for places along a predefined route, the Python ChatGPT API was utilized. The ChatGPT API, developed by OpenAI, is a powerful tool in Natural Language Processing (NLP) capable of delivering intelligent and efficient solutions across various domains (\cite{paredes2023chatgpt}). The API enables seamless integration of the ChatGPT language model into development environments, as described in \cite{paredes2023chatgpt}. Released in 2022, it has since become one of the most successful models in its category (\cite{paredes2023chatgpt}). In this project, the API was employed to summarize extracted contexts into concise, mountaineering-focused descriptions.
+\begin{enumerate}
+    \item \textbf{Context Extraction:} Tour descriptions from the CSV file (\texttt{hikr\_tour\_reports.csv}) were processed to identify text snippets around each place name. Using regular expressions, occurrences of a place name were located, and a fixed window of text around each occurrence was extracted to provide context.
+    
+    \item \textbf{Integration with OpenAI API:} The extracted contexts were passed to the ChatGPT API for summarization. The prompts instructed the model to:
+    \begin{itemize}
+        \item Identify the difficulty level using mountaineering scales (e.g., T4, PD).
+        \item Highlight notable features such as landmarks or terrain specifics.
+        \item Provide transition details, including previous and next locations along the route.
+        \item Offer concise navigation tips for each location.
+    \end{itemize}
+
+    \item \textbf{Contextual Summarization:} For each place, the OpenAI model generated a brief, bullet-point summary suitable for map annotations. The summary incorporated data on route changes, challenges, and navigation guidance.
+    
+    \item \textbf{Output Generation:} The generated summaries were added as a new column in the places file (\texttt{sorted\_places\_along\_route.csv}) and saved as \texttt{mountaineering\_descriptions\_with\_directions.csv}.
+\end{enumerate}
+
+\section{Results}
+
+In the follwing paragraphs the results of the proposed methods in extracting, analyzing, and visualizing geoinformation from tour reports, are elaborated.
+
+\subsection{Data Collection and Place Name Extraction}
+
+Tour reports were successfully scraped from \texttt{Hikr.org}, in total 190 Tour Reports for the tour of piz bernina, combined into a csv-dataset of textual descriptions detailing mountaineering experiences.
+Using the \texttt{spaCy} library for Named Entity Recognition (NER), place names such as peaks, huts, and valleys were identified. Than the frequencie of the differnt Placenames was quantified to see wich placenames occors th often. In the table below we can see the top 7 Names that where most often mentioned in the Tour Reports from Hikr.
+The extracted entities were filtered to ensure relevance, with frequent place names corresponding to key geographic landmarks.
+\begin{table}[h]
+\centering
+\caption{Top identified place names and their frequencies from the analyzed Hikr tour reports for Piz Bernina and Bishorn.}
+\begin{tabular}{ l r l r }
+\hline
+\textbf{Place} & \textbf{Frequency} & \textbf{Place} & \textbf{Frequency} \\ 
+\hline
+Piz Bernina         & 144  & Zinal              & 103 \\
+Pontresina          & 80   & Bishorn            & 56  \\
+Tschiervahütte      & 72   & Weisshorn          & 55  \\
+Piz Morteratsch     & 71   & Tracuithütte       & 48  \\
+Bovalhütte          & 56   & Turtmanngletscher  & 29  \\
+Bovalhütte          & 56   & Firn               & 17  \\
+Piz Roseg           & 56   & Steigeisen         & 16  \\
+Bernina             & 51   & Cabane de Tracuit  & 15  \\
+\hline
+\end{tabular}
+\end{table}
+
+A total of 190 Hikr tour reports for Piz bernina and 78 for Bishorn were analyzed  to identify place names along the Bishorn and Piz Bernina routes. The identification process resulted in 791 place names for Bishorn and 1617 place names for Piz Bernina. 
+
+The identification process successfully captured relevant locations such as "Bishorn," "Turtmanngletscher," and "Cabane de Tracuit," it also encountered challenges with false positives. Several generic terms, such as Bewegung (movement), Steigeisen (crampons), and Essen (food), were misclassified as place names. Additionally, place names unrelated to the study area, such as "Himalaya," "Berlin," and "Scotland," were detected in the descriptions.
+
+\subsection{Geoparsing and Route Integration}
+
+The identified place names were geotagged using the \texttt{geopy} library and matched to predefined routes extracted from GPX files. This process involved calculating geodesic distances between place coordinates and the route, allowing the selection of places within a 400-meter threshold. The resulting geotagged data was overlaid on Swiss Topo maps to visualize geographic relationships and enhance navigation. The geoparsing of these identified names revealed that 38 locations for Bishorn and 43 locations for Piz Bernina could be successfully assigned geographic coordinates. Furthermore, within the buffer of the respective routes, 5 places were identified for Bishorn and 8 places for Piz Bernina.
+
+\begin{figure}[H]
+\centering
+\includegraphics{images/Retrieving_Geoparsed.png}
+\Description{A bell-like histogram centered at $0.5$˜V with most
+measurements between $0.2$˜V and $0.8$˜V}
+\caption{Visualization of the identified Places along the route, geoparsed and plotted on a map.}
+\label{fig:Retrieving_Geoparsed}
+\end{figure}
+
+\subsection{AI-Driven Summarization}
+
+Using the ChatGPT API, extracted textual contexts around each place name were summarized into concise, mountaineering-focused descriptions. These summaries included:
+\begin{itemize}
+    \item Difficulty levels using mountaineering scales (e.g., T4, PD).
+    \item Notable geographic features (e.g., terrain, landmarks, and views).
+    \item Navigation tips, such as key route transitions or hazards.
+\end{itemize}
+The generated descriptions were evaluated for relevance and clarity, with the final outputs integrated into an interactive map for practical usability.
+
+\subsection{Visualization and Insights}
+If the paper \cite{Maling01061988} is already older, its main message of generating maps with up-to-date data tailored for specific user groups, and the interplay between cartographers and user communities, remains highly relevant. Maling highlighted this interplay as essential for improving map design. In the digital age, this has taken on new dimensions: crowdsourced data, user reviews, and feedback mechanisms are now integral to the iterative process of creating and refining maps.
+ Rotche \cite{Rotche16012024} underscores the critical need for human-centered approaches in cartography, especially for applications like avalanche hazard mapping, ensuring the outputs are intuitive and actionable for diverse users. This aspects plays also a curcial role in this example creating a map for climber focused activities. Therefore the processed data was visualized on an interactive Swiss Topo map that was already statisficaly devolepd and adapted to this user group. The visualization effectively combines textual (The AI generated descriptions) and spatial data (Swisstopo Map, Key Dicison making points of the route distinguished from the Reports), providing climbers with actionable insights for safer route planning and navigation.
+
+\begin{figure}[H]
+\centering
+\includegraphics{images/Retrieving_ai.png}
+\Description{A bell-like histogram centered at $0.5$˜V with most
+measurements between $0.2$˜V and $0.8$˜V}
+\caption{Visualization of the identified Places along the route, geoparsed and plotted on a map.}
+\label{fig:Retrieving_ai}
+\end{figure}
+
+
+\section{Discussion}
+This study explored the potential of AI-driven geoinformation processing for mountaineering applications by leveraging web-scraped tour reports and geospatial analysis. While the methodology demonstrated promising results for well-documented routes such as Piz Bernina, several challenges and limitations were encountered when applying the approach to less-documented itineraries like the Weisshorn Normalweg. The discussion in this section critically evaluates these challenges, addressing key issues such as the limitations of the current geocoding approach, the ethical considerations of web scraping, and the responsibilities associated with generating maps for high-risk user groups. Furthermore, the acceptance and trust of mountaineers in AI-generated content are examined.
+
+\subsection{Challenges and Limitations of the Approach}
+
+The methodology performed well for Piz Bernina due to the abundance of tour reports and multiple geocodable locations along the route. In contrast, applying the same approach to the Weisshorn Normalweg proved challenging. Despite sourcing 25 tour reports, the route offered few distinct landmarks—only the starting point, Weisshornhütte, and the peak—which limited geocoding potential. Consequently, this route was excluded from the analysis. Also often Geographic locations where mentioned that are near the route or can be seen from the route.
+
+As \cite{piotrowski2010towards} highlight, mountaineering texts often include numerous toponyms, but distinguishing route-relevant references from those describing panoramas or narrative details is a significant challenge. The current methodology focuses on prominent locations, but advanced natural language processing, as suggested by \cite{piotrowski2010towards}, could improve the extraction of route-specific toponyms by analyzing linguistic cues like verbs of movement and spatial context.
+
+This comparison illustrates that while the method works well for routes with rich geospatial information, it struggles with simpler or less-documented itineraries, necessitating further refinement.
+
+\subsection{Ethical Considerations of Web Scraping}
+
+In this study, web scraping was employed as a methodology to acquire geospatial data. The ethical considerations surrounding this approach are critical and require a nuanced discussion. A primary distinction must be made between closed data and publicly accessible data. Publicly accessible data, which is open and does not require authentication or violate terms of service, carries significantly lower legal and ethical risks compared to data protected by restrictions (\cite{Brown2024}). However, it is essential to note that website structures and access policies can change without notice, necessitating ongoing adaptations to scraping methods (\cite{Brenning2023}).
+
+Scraping often intersects with user agreements, intellectual property laws, and privacy regulations. As recommended by \cite{Brown2024}, transparency in methods and thorough documentation of processes were maintained throughout this project. To minimize harm, data collection was limited strictly to necessary information.  The data was used exclusively for academic purposes, with no personal or sensitive information collected or published. This approach aligns with the recommendations of \cite{Brown2024} to maintain transparency and limit the scope of data collection to what is essential for the research objectives.
+
+
+\subsection{Responsobilies of Generating Maps for endangered user groups}
+When an error occurs in a map designed for city use, it can be frustrating and time-consuming for the end user. However, in a climber-focused setting, precision in displayed data is critical, as inaccuracies can pose significant safety risks. While this project mitigates cartographic challenges by relying on the high-quality SwissTopo map, the integration of AI-generated descriptions introduces new responsibilities. It is essential to clearly communicate that these descriptions are automatically generated, may contain inaccuracies, and, without proper validation, are not suitable for public use.
+
+Although specific literature on AI applications in mountaineering is limited, the paper by \cite{Capelli2023} provides valuable insights by addressing the ethical considerations of AI in clinical surgery. The contexts may differ, but key principles—such as reliability, transparency, and user safety—are directly transferable.
+
+Integrating AI-generated descriptions in mountaineering requires a clear acknowledgment of the system's role and limitations. Transparency about the automated nature of the descriptions and their potential inaccuracies is essential to prevent over-reliance. Moreover, the following aspects must be prioritized:
+
+\begin{itemize}
+    \item \textbf{Reliability:} As with surgical AI, the dependability of AI systems in providing accurate and safe guidance is paramount\cite{Capelli2023} .
+    \item \textbf{Transparency and Communication:} Users must understand how the AI operates, its limitations, and why expert validation is necessary\cite{Capelli2023} .
+    \item \textbf{Ethical Use:} AI should enhance decision-making rather than replace human judgment, with user safety remaining the primary concern\cite{Capelli2023} .
+\end{itemize}
+
+\subsection{User Acceptance and Trust in AI-Generated Content}
+One of the primary challenges in adopting AI-generated geoinformation is user trust. Its possible that mountaineers often rely on traditional sources such as personal experience, guidebooks, and community-generated reports rather than algorithmically processed data
+. Despite the potential of AI to synthesize large volumes of data into concise insights, climbers may remain skeptical about the accuracy and contextual relevance of such content, particularly in high-risk environments. Transparency measures, such as linking AI-generated summaries to original reports, could help enhance credibility and allow users to verify information independently.
+Mountaineers' smartphone usage patterns also influence the feasibility of implementing AI-based solutions. Research indicates that while smartphones are commonly carried on expeditions, their usage is often limited to essential functions such as emergency communication, GPS navigation, and weather updates . Factors such as battery life, network availability, and usability under extreme conditions remain significant barriers to reliance on mobile devices for decision-making in the mountains.Finally, while AI-based tools have the potential to enhance mountaineering safety, they should complement rather than replace traditional decision-making practices.
+\subsection{Comparison with Established Platforms}
+
+To assess the effectiveness and usability of the AI-generated geoinformation map, a mountaineering friend who was unfamiliar with the Piz Bernina route was asked to prepare using both the developed map and two widely recognized online platforms:
+
+\begin{itemize}
+    \item \textbf{Alpenvereinaktiv:} \url{https://www.alpenvereinaktiv.com/...}
+    \item \textbf{SAC Tourenportal:} \url{https://www.sac-cas.ch/...}
+\end{itemize}
+
+The AI-generated map provided a \textbf{structured, sequential overview} of the route, helping the user gain an initial understanding of key waypoints. The step-by-step breakdown of the route was appreciated as a useful entry point for trip planning. The map's \textbf{simplicity and clarity} allowed the user to obtain a general idea of the tour without being overwhelmed by excessive details.
+
+Furthermore, the AI-based approach proved to be \textbf{time-efficient}, especially for climbers planning less complex routes. The participant noted that the map provided an excellent foundation for an initial assessment, allowing for a rapid orientation before switching to more detailed resources.
+
+Despite its strengths, the participant identified several areas where the AI-generated map fell short compared to the established platforms:
+
+\begin{itemize}
+    \item \textbf{Lack of Detailed Information:} The AI-generated map lacked critical details, such as \textit{specific abseil points, terrain difficulties, and emergency exits}, which are crucial for comprehensive tour preparation.
+    \item \textbf{Familiarity and Structure:} Established platforms follow standardized formats that users are accustomed to, making navigation and interpretation more intuitive. The AI-generated summaries, while helpful, lacked the expected structure.
+    \item \textbf{Visual Enhancements:} The participant suggested that more visual cues, such as icons for critical points and hazard areas, would improve readability and usability.
+    \item \textbf{Trustworthiness:} While the AI map provided a useful overview, the participant emphasized the importance of cross-referencing multiple sources to ensure accuracy, particularly for technical or high-risk routes.
+\end{itemize}
+
+The feedback suggests that the AI-generated map serves well as an \textbf{initial planning tool}, offering a quick overview and sequential route description. However, for more technical and complex routes, it should be complemented with traditional sources such as SAC and Alpenvereinaktiv.
+
+\section{Conclusion}
+
+The findings of this study demonstrate the potential of integrating web scraping, AI-driven text summarization, and GIS-based visualization to enhance geoinformation retrieval for mountaineering. By systematically extracting and analyzing user-generated tour reports from platforms such as Hikr, the proposed approach provides climbers with concise, route-specific insights that support better decision-making and safer outdoor experiences. The workflow effectively addresses key research questions by offering methods to gather and filter publicly available descriptive text data, improving the accessibility and usability of geospatial information, and leveraging cartographic visualization to enhance safety.  
+
+The research highlights the importance of combining AI technologies with geospatial tools to extract meaningful insights from unstructured user-generated content. Ethical considerations in web scraping, transparency in data processing, and the presentation of AI-generated information remain critical aspects to ensure the credibility and trustworthiness of such solutions.  
+
+Despite the promising results, several challenges persist, including the accuracy of place name recognition, lack of places along aroute that can be georeferzenz, the inherent variability in the quality of user-generated content, and the necessity of expert validation for AI-generated summaries. Addressing these challenges in future work could involve refining text processing algorithms, incorporating real-time hazard data, and expanding the methodology to other mountainous regions and outdoor activities. 
+
+\subsection{Research Question Answers}
+
+\textbf{RQ1:} \textit{How can publicly available descriptive text data be effectively gathered, filtered, and structured to generate geoinformation that supports specific tasks with a focus on ethics?}  
+The developed web scraping approach effectively collected and structured relevant mountaineering reports using Named Entity Recognition (NER) and spatial filtering to extract key locations. Ethical considerations, such as compliance with platform policies and transparency in data processing, were addressed. However, challenges remain in filtering out irrelevant or ambiguous place references, requiring further refinement.
+
+\textbf{RQ2:} \textit{In what ways can cartography and geospatial visualization enhance the safety of individuals exposed to risks, such as mountaineers, and what responsibilities come with it for the map creator?}  
+The integration of AI-generated summaries with high-quality maps (e.g., SwissTopo) enhances route planning and risk assessment by providing clear and concise visualizations of critical waypoints. The map creator has the responsibility to ensure accuracy, clearly communicate the limitations of AI-generated content, and provide expert validation to avoid potential misinterpretations that could impact safety.
+
+\textbf{RQ3:} \textit{How can the integration of AI-driven text summarization and GIS tools improve the accessibility and usability of geospatial information for mountaineers?}  
+The combination of AI-driven text summarization with GIS tools improves accessibility by transforming complex tour reports into concise, actionable insights. While the solution offers a useful initial overview, it should be complemented with traditional sources for comprehensive trip planning to ensure accuracy and reliability in high-risk environments.
+
+%% References
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{references.bib}
+
+\end{document}

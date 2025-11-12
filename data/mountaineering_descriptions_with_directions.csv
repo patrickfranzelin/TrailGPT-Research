@@ -1,0 +1,44 @@
+Place,Latitude,Longitude,NearestRoutePointIndex,DistanceToRoute,Generated_Description
+Rosegtal,46.4890557,9.8987686,5,93.72985667617458,"- **Difficulty Level**: T4 (Technically demanding, involves some scrambling)
+- **Notable Features**: Scenic Rosegtal valley, striking views of Piz Roseg and Eselsgrat; Tschiervahütte as a highlight.
+- **Transition Details**: 
+  - **Previous Place**: Tschiervahütte (2583 m)
+  - **Next Place**: Pontresina; follows a long descent through Rosegtal.
+- **Route Guidance**: Follow rock cairns from glacier edge to Tschiervahütte, then descend through Rosegtal; maintain awareness of path visibility, especially in fog."
+Val Roseg,46.4379345,9.8668031,484,2.8498313186566016,"- **Difficulty Level:** T3
+- **Notable Features:** Scenic views of the Bernina range; notable landmarks include Piz Morteratsch and Tschiervahütte.
+- **Transition Details:** Accessed via Rosegtal; route continues towards Tschiervahütte.
+- **Route Guidance:** Follow well-marked paths along the right bank of Val Roseg; be cautious of narrow sections and keep an eye out for cairns."
+Tschiervahütte,46.40385045,9.88012932393112,1039,15.14470225334352,"- **Difficulty Level**: T3
+- **Notable Features**: Scenic views of Piz Roseg and Biancograt; rustic and cozy hut atmosphere.
+- **Transition Details**: Preceding location is Val Roseg; following locations include Piz Tschierva and various climbing routes.
+- **Route Guidance**: Follow marked paths (cairns) from Val Roseg; steep sections, particularly near the upper path to the hut, are manageable; redirect to avoid obstacles as needed."
+Tschierva-Hütte,46.40385045,9.88012932393112,1039,15.14470225334352,"- **Difficulty Level:** T4
+- **Notable Features:** Spectacular views of Piz Bernina and Piz Roseg, modern hut building.
+- **Transition Details:** 
+  - Previous: Tschiervahütte
+  - Next: Fuorcla Prievlusa
+- **Route Guidance:** 
+  - Follow the marked path from Hotel Roseg to Tschierva-Hütte.
+  - Look for cairns along the ascent to navigate steeper sections. 
+  - Expect morainal terrain near the glacier."
+Fuorcla Prievlusa,46.3939731,9.9068242,1076,12.72156909783569,"- **Difficulty Level**: ZS+ (III+)
+- **Notable Features**: Scenic views, elevation of 3430m, access to Biancograt.
+- **Transition Details**: From Tschierva-Hütte to Fuorcla Prievlusa, then continue to Biancograt.
+- **Route Guidance**: Follow stone cairns and reflective markers; navigate through snow and rocks, transitioning onto the glacier; consider a left path for less rockfall risk. Use crampons for the firn slope."
+Biancograt,46.3876352,9.9058198,1088,57.889776995595184,"- **Difficulty Level**: PD (Peu Difficile); T4.
+- **Notable Features**: Famous ""Himmelsleiter"" ridge; stunning views of Piz Bernina and surrounding peaks.
+- **Transition Details**: Previous place: Fuorcla Prievlusa; Next place: Piz Bianco; Begins with an ascent on snow and rock to the Biancograt.
+- **Route Guidance**: Follow well-marked trails and cairns; traverse around rock outcrops as needed; beware of steep and icy sections near the top."
+Piz Bianco,46.3845983,9.9065742,1093,17.374131774207548,"- **Difficulty Level**: T4 with sections of T5; mixed climbing up to III/III+
+- **Notable Features**: Summit at 3995m; scenic Bianco ridge; views of Piz Bernina
+- **Transition Details**: Previous: Biancograt; Next: Piz Bernina; key change from snow crest to rocky ridge
+- **Route Guidance**: Follow cairns along the narrow ridge; significant sections require careful navigation of exposed areas; expect abseils and mixed terrain; maintain smooth pacing to manage waiting at abseil points."
+Piz Bernina,46.3824278,9.9080521,1099,7.1271589393882895,"- **Difficulty Level:** PD (Peu difficile) 
+- **Notable Features:** Highest peak in the Eastern Alps (4049 m), stunning views of surrounding peaks (Piz Palü, Bellavista).
+- **Transitions:** Previous: Piz Bianco; Next: La Spedla. Route involves crossing the Spallagrat.
+- **Route Guidance:** Follow cairns and established paths. Careful ascent on the mixed rock and snow sections, particularly the traverse from Piz Bianco to Piz Bernina. Be prepared for potential weather changes. Long descent via Spallagrat to Marco e Rosa Hut."
+La Spedla,46.3809172,9.9073907,1101,3.026345345541516,"- **Difficulty Level**: PD (Peu Difficile)
+- **Notable Features**: Summit at 4020m, spectacular views, airy ridge climbing, close to Piz Bernina.
+- **Transition Details**: Connects from Piz Bernina (previous) to Rifugio Marco e Rosa (next). 
+- **Route Guidance**: Follow good trail markings, primarily under the ridge; use a 50m rope for abseiling; look for solid snow and ice; avoid exposed ridge sections when possible. "

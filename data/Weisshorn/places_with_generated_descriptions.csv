@@ -1,0 +1,40 @@
+Place,Latitude,Longitude,NearestRoutePointIndex,DistanceToRoute,Generated_Description
+Roc de la Vache,46.1189247,7.6451894,173,275.444039445661,"- **Difficulty Level**: T4
+- **Notable Features**: Scenic views of Zinal, the impressive Roc de la Vache pyramid, and the majestic Corona Imperiale.
+- **Transition Details**: 
+  - Previous place: Parking in Zinal.
+  - Next place: Col de Tracuit.
+  - Key route changes: Divert to right at the col to approach Roc de la Vache.
+- **Route Guidance**: 
+  - Follow good trail markers; path leads through lush meadows.
+  - Watch for cairns; navigate left around a rock outcrop (gendarme) to find the easier ascent.
+  - Expect a short uphill pastures climb (approx. 20m) to reach the viewpoint.
+"
+Col de Tracuit,46.1307995,7.6782515,397,7.395063417262293,"- **Difficulty Level**: ZS (Zorrenshweg)
+- **Notable Features**: Views of glaciers and seracs; steep ascent to Col de Tracuit.
+- **Transition Details**: Previous place: Roc de la Vache; next place: Cabane de Tracuit.
+- **Route Guidance**: 
+  - Follow marked path; note cairns.
+  - Steep terrain with rocky sections and snowfields.
+  - Caution on the last very steep passage with fixed chains."
+Cabane de Tracuit,46.13031065,7.6794150635639955,401,8.842004721947847,"- **Difficulty Level**: T3
+- **Notable Features**: Newly built Cabane de Tracuit at 3256m, stunning views of Bishorn and Turtmanngletscher.
+- **Transition Details**: Previous place: Col de Tracuit; Next place: Turtmanngletscher.
+- **Route Guidance**: 
+  - Follow marked path through grassy pastures and rocky terrain.
+  - Navigate via cairns and a chain-assisted rocky wall just before reaching the hut. 
+  - Be cautious of snowfields and expect a long ascent with significant elevation gain (1600m)."
+Turtmanngletscher,46.1300429,7.696825103291154,424,243.84327775927903,"- **Difficulty Level**: T4 (moderate to difficult, with some steep sections)
+- **Notable Features**: Extensive glacier with deep crevasses; views of the Bishorn peak and surrounding landscapes.
+- **Transitions**: Previous place: Cabane de Tracuit (3256m); Next place: Bishorn (4153m). Route transitions from flat glacier to steeper ascent towards Bishorn.
+- **Route Guidance**: 
+  - Follow established paths and cairns across the glacier.
+  - At 3500m, keep left to avoid crevasses.
+  - Ascend the northwestern flank to approach the summit ridge."
+Bishorn,46.1179218,7.7149611,446,4.724781695593928,"- **Difficulty Level**: T4 (F+)
+- **Notable Features**: Highlights include the Bishorn (4153m) and Pointe Burnaby (4135m); views of the Weisshorn.
+- **Transition Details**: Start from Turtmanngletscher, finish at Zinal via Cabane de Tracuit.
+- **Route Guidance**: 
+  - Ascend via a well-marked glacier path; watch for crevasses.
+  - An easy scramble leads to the saddle between the West and East summits.
+  - Return via the same route to Zinal (2500m descent)."

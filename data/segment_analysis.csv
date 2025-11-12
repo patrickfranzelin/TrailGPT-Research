@@ -1,0 +1,9 @@
+Place,Start,End,Difficulty,Failure
+Rosegtal,"(np.float64(46.4890557), np.float64(9.8987686))","(np.float64(46.4379345), np.float64(9.8668031))",True,False
+Val Roseg,"(np.float64(46.4379345), np.float64(9.8668031))","(np.float64(46.40385045), np.float64(9.88012932393112))",True,True
+Tschiervahütte,"(np.float64(46.40385045), np.float64(9.88012932393112))","(np.float64(46.40385045), np.float64(9.88012932393112))",True,True
+Tschierva-Hütte,"(np.float64(46.40385045), np.float64(9.88012932393112))","(np.float64(46.3939731), np.float64(9.9068242))",True,False
+Fuorcla Prievlusa,"(np.float64(46.3939731), np.float64(9.9068242))","(np.float64(46.3876352), np.float64(9.9058198))",True,False
+Biancograt,"(np.float64(46.3876352), np.float64(9.9058198))","(np.float64(46.3845983), np.float64(9.9065742))",True,True
+Piz Bianco,"(np.float64(46.3845983), np.float64(9.9065742))","(np.float64(46.3824278), np.float64(9.9080521))",True,False
+Piz Bernina,"(np.float64(46.3824278), np.float64(9.9080521))","(np.float64(46.3809172), np.float64(9.9073907))",True,True
