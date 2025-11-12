@@ -73,8 +73,8 @@ TrailGPT/
 ## Example Output
 
 **Case Studies:**  
-- 🏔 **Piz Bernina** — 190 reports processed, 43 geoparsed locations  
-- 🏔 **Bishorn** — 78 reports processed, 38 geoparsed locations  
+- **Piz Bernina** — 190 reports processed, 43 geoparsed locations  
+- **Bishorn** — 78 reports processed, 38 geoparsed locations  
 
 **Generated Results:**  
 - AI-generated place summaries with mountaineering scales (e.g., T4, PD)  
